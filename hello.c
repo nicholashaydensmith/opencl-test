@@ -4,7 +4,6 @@
 
 int main(void)
 {
-      fprintf(stderr, "TESTERR\n");
       cl_int err;
       cl_int num_entries = 5;
       cl_platform_id *platforms;
@@ -39,7 +38,7 @@ int main(void)
             free(platform_name);
       }
       cl_platform_id platform = platforms[0];
-      cl_int device_entries = 1;
+      cl_int device_entries = 5;
       cl_uint num_devices;
       cl_device_id *devices;
       devices = malloc(sizeof(cl_device_id) * device_entries);
