@@ -1,9 +1,10 @@
 # Makfile
 
-SRC = hello.c
-OBJ = $(SRC:.c=.o)
+CSRC = Context.c ContextManager.c Device.c Platform.c hello.c
+HSRC = Context.h ContextManager.h Device.h MemoryManager.h  Platform.h Queue.h Util.h
+COBJ = $(CSRC:.c=.o)
 EXE = hello
-JUNK = $(OBJ)
+JUNK = $(COBJ)
 INCLUDE = -I/opt/nvidia/cuda/include
 LIB = -lOpenCL
 FLAGS = -g -Wall -Wextra --std=c99
@@ -11,7 +12,7 @@ GCC = gcc
 
 all: $(EXE)
 
-$(EXE): $(OBJ)
+$(EXE): $(COBJ)
 	$(GCC) $(FLAGS) $(INCLUDE) -o $@ $^ $(LIB)
 
 %.o: %.c

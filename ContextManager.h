@@ -1,10 +1,10 @@
-#ifndef __DEVICEMANAGER_H__
-#define __DEVICEMANAGER_H__
+#ifndef __CONTEXTMANAGER_H__
+#define __CONTEXTMANAGER_H__
 
-typedef struct _DeviceManager DeviceManager;
+typedef struct _ContextManager ContextManager;
 
-DeviceManager *new_DeviceManager();
+ContextManager *new_ContextManager();
 
-void delete_DeviceManager();
+void delete_ContextManager();
 
 #endif

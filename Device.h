@@ -1,10 +1,10 @@
-#ifndef __DEVICEMANAGER_H__
-#define __DEVICEMANAGER_H__
+#ifndef __DEVICE_H__
+#define __DEVICE_H__
 
-typedef struct _DeviceManager DeviceManager;
+typedef struct _Device Device;
 
-DeviceManager *new_DeviceManager();
+Device *new_Device();
 
-void delete_DeviceManager();
+void delete_Device();
 
 #endif

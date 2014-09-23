@@ -1,28 +1,21 @@
-#include "DeviceManager.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "Context.h"
+#include "Util.h"
 
-#define sfree(x) if(x) free(x);
-
-struct _DeviceManager
+struct _Context
 {
-      Devices *device_list;
-      unsigned int num_devices;
-      unsigned int *devices_in_use;
-      
+     int i; 
 };
 
-DeviceManager *new_DeviceManager()
+Context *new_Context()
 {
-      DeviceManager *this = (DeviceManager*)malloc(sizeof(DeviceManager));
-      this->device_list = NULL;
-      this->num_devices = 0;
-      this->devices_in_use = NULL;
-      init_gpu();
-      return new;
+      Context *self = (Context*)malloc(sizeof(Context));
+      return self;
 }
 
-void delete_DeviceManager(DeviceManager *this)
+void delete_Context(Context *self)
 {
-      sfree(this->device_list);
-      sfree(this->devices_in_use);
-      sfree(this);
+      SFREE(self);
 }

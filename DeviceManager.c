@@ -1,12 +1,13 @@
+#include "Device.h"
 #include "DeviceManager.h"
 
 #define sfree(x) if(x) free(x);
 
 struct _DeviceManager
 {
-      Devices *device_list;
-      unsigned int num_devices;
-      unsigned int *devices_in_use;
+      Device *device_list;
+      int num_devices;
+      int *devices_in_use;
       
 };
 
@@ -17,7 +18,7 @@ DeviceManager *new_DeviceManager()
       this->num_devices = 0;
       this->devices_in_use = NULL;
       init_gpu();
-      return new;
+      return this;
 }
 
 void delete_DeviceManager(DeviceManager *this)
