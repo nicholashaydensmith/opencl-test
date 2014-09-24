@@ -1,12 +1,12 @@
 # Makfile
 
-CSRC = Context.c ContextManager.c Device.c Platform.c hello.c
+CSRC = Context.c ContextManager.c Device.c Platform.c hello.c Queue.c
 HSRC = Context.h ContextManager.h Device.h MemoryManager.h  Platform.h Queue.h Util.h
 COBJ = $(CSRC:.c=.o)
 EXE = hello
 JUNK = $(COBJ)
 INCLUDE = -I/opt/nvidia/cuda/include
-LIB = -lOpenCL
+LIB = -lOpenCL -lpthread
 FLAGS = -g -Wall -Wextra --std=c99
 GCC = gcc
 

@@ -27,14 +27,15 @@ Queue *new_Queue()
       return self;
 }
 
-void delete_Queue(Queue *self, int free_elems)
+void delete_Queue(Queue *self, Bool free_elems) 
 {
-      for(Item *iter = self->head; iter->next != NULL; iter = iter->next)
-      {
-            if(free_elems)
-                  free(iter->data);
-            free(iter);
-      }
+      if(self->head)
+		  for(Item *iter = self->head; iter->next != NULL; iter = iter->next)
+		  {
+				if(free_elems)
+					  free(iter->data);
+				free(iter);
+		  }
       pthread_mutex_destroy(&self->lock);
       free(self);
 }

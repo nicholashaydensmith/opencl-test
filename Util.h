@@ -6,10 +6,11 @@
 
 #define MAX_DEVICES 16
 #define MAX_PLATFORMS 16
+#define MAX_THREADS 1024
 
-enum {
-      FALSE = 0,
-      TRUE = 1,
-} bool;
+typedef enum {
+      false = 0,
+      true = 1,
+} Bool;
 
 #endif

@@ -1,11 +1,12 @@
 #ifndef __QUEUE_H__
 #define __QUEUE_H__
+#include "Util.h"
 
 typedef struct _Queue Queue;
 
 Queue *new_Queue(void);
 
-void delete_Queue(Queue *self, int free_elems);
+void delete_Queue(Queue *self, Bool free_elems);
 
 int Queue_Empty(Queue *self);
 

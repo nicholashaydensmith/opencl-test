@@ -28,6 +28,7 @@ struct _Platform
       cl_platform_id platform_id;
       char *platform_info[kPlatformInfoSize];
       Device **devices;
+	  int num_devices;
 };
 
 Platform *new_Platform(cl_platform_id platform_id)
@@ -63,6 +64,7 @@ Platform *new_Platform(cl_platform_id platform_id)
                      devices, 
                      &num_devices), "Unable to get device IDs")))
             goto bail;
+	  self->num_devices = num_devices;
       self->devices = (Device**)malloc(sizeof(Device*) * num_devices);
 
       for(unsigned int i = 0; i < num_devices; ++i)
@@ -80,5 +82,9 @@ void delete_Platform(Platform *self)
 {
       for(int i = 0; i < kPlatformInfoSize; ++i)
             SFREE(self->platform_info[i]);
+
+      for(int i = 0; i < self->num_devices; ++i)
+            delete_Device(self->devices[i]);
+
       SFREE(self);
 }
